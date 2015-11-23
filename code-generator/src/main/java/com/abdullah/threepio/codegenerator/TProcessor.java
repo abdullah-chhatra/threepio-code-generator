@@ -1,5 +1,7 @@
 package com.abdullah.threepio.codegenerator;
 
+import com.abdullah.threepio.codegenerator.autojson.JsonParsableGenerator;
+import com.abdullah.threepio.codegenerator.parcelmaker.ParcelableGenerator;
 import com.sun.codemodel.JCodeModel;
 
 import java.io.IOException;
@@ -15,8 +17,6 @@ import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
 
-import free.abdullah.threepio.codegenerator.autojson.JsonParsableGenerator;
-import free.abdullah.threepio.codegenerator.parcelmaker.ParcelableGenerator;
 
 public class TProcessor extends AbstractProcessor {
 

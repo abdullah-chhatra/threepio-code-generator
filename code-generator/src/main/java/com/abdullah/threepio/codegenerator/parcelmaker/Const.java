@@ -5,11 +5,11 @@ package com.abdullah.threepio.codegenerator.parcelmaker;
  */
 public final class Const {
 
-    public static final String AUTO_PARCEL = "free.abdullah.threepio.autoparcel.AutoParcel";
+    public static final String AUTO_PARCEL = "com.abdullah.threepio.autodata.parcel.AutoParcel";
 
-    public static final String PARCEL_LISTENER = "free.abdullah.threepio.autoparcel.ParcelListener";
+    public static final String PARCEL_LISTENER = "com.abdullah.threepio.autodata.parcel.ParcelListener";
 
-    public static final String PARCEL_IGNORE = "free.abdullah.threepio.autoparcel.ParcelIgnore";
+    public static final String PARCEL_IGNORE = "com.abdullah.threepio.autodata.parcel.ParcelIgnore";
 
     public static final String PARCEL = "android.os.Parcel";
 

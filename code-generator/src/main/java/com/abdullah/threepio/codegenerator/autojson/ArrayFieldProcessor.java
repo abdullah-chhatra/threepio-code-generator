@@ -1,13 +1,13 @@
 package com.abdullah.threepio.codegenerator.autojson;
 
+import com.abdullah.threepio.codegenerator.TEUtils;
+import com.abdullah.threepio.codegenerator.TMessager;
+
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.PrimitiveType;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.TypeKindVisitor7;
-
-import free.abdullah.threepio.codegenerator.TEUtils;
-import free.abdullah.threepio.codegenerator.TMessager;
 
 /**
  * Created by abdullah on 10/11/15.

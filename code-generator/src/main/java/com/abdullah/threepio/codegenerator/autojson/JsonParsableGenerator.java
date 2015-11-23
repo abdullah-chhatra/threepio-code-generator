@@ -1,5 +1,8 @@
 package com.abdullah.threepio.codegenerator.autojson;
 
+import com.abdullah.threepio.codegenerator.TGenerator;
+import com.abdullah.threepio.codegenerator.TModelFactory;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,9 +12,6 @@ import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
-
-import free.abdullah.threepio.codegenerator.TGenerator;
-import free.abdullah.threepio.codegenerator.TModelFactory;
 
 /**
  * Created by abdullah on 9/11/15.

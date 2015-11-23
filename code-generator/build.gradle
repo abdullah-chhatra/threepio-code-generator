@@ -8,3 +8,64 @@ dependencies {
     compile 'com.sun.codemodel:codemodel:2.6'
     compile 'com.google.guava:guava:18.0'
 }
+
+ext {
+    project_version = '1.0.0'
+    artifact_id     = 'code-generator'
+    project_name    = 'Threepio Code Generator'
+    project_desc    = 'Annotation processor and code generator for Threepio group of libraries.'
+}
+
+def project_url     = 'https://github.com/abdullah-chhatra/threepio-code-generator'
+def git_url         = 'https://github.com/abdullah-chhatra/threepio-code-generator.git'
+
+version = project_version
+group = 'com.abdullah.threepio'
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+publishing {
+    publications {
+        CodeGenerator(MavenPublication) {
+            from components.java
+            groupId group
+            artifactId artifact_id
+            version project_version
+        }
+    }
+}
+
+// https://github.com/bintray/gradle-bintray-plugin
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    publications = ['CodeGenerator']
+    pkg {
+        repo = "maven"
+        // it is the name that appears in bintray when logged
+        name 		= artifact_id
+        websiteUrl 	= project_url
+        vcsUrl 		= git_url
+        licenses 	= ["MIT"]
+        publish 	= true
+        version {
+            name = project_version
+            gpg {
+                sign = true //Determines whether to GPG sign the files. The default is false
+                passphrase = properties.getProperty("bintray.gpg.password") //Optional. The passphrase for GPG signing'
+            }
+//            mavenCentralSync {
+//                sync = true //Optional (true by default). Determines whether to sync the version to Maven Central.
+//                user = properties.getProperty("bintray.oss.user") //OSS user token
+//                password = properties.getProperty("bintray.oss.password") //OSS user password
+//                close = '1' //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
+//            }
+        }
+    }
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
