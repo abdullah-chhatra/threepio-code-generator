@@ -178,8 +178,8 @@ public class GeneratedJsonParsable extends TGeneratedClass {
     public void finalizeGenerate() {
         TypeMirror jsonParseListener = teUtils.getTypeMirror(Const.JSON_PARSE_LISTENER);
         if(teUtils.isSubtype(baseClass.asType(), jsonParseListener)) {
-            outBlock.invoke("writeJson").arg(out);
-            inBlock.invoke("readJson").arg(in);
+            outBlock.invoke("onWriteJson").arg(out);
+            inBlock.invoke("onReadJson").arg(in);
         }
 
         outBlock._return(out);

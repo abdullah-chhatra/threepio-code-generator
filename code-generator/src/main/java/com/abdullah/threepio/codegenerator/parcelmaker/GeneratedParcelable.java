@@ -33,6 +33,7 @@ public class GeneratedParcelable extends TGeneratedClass {
     private JBlock readBlock;
     private JVar inVar;
     private JVar destVar;
+    private JVar flags;
 
     public GeneratedParcelable(Element baseClass, TModelFactory factory,
                                TMessager messager, TEUtils teUtils) {
@@ -109,8 +110,8 @@ public class GeneratedParcelable extends TGeneratedClass {
         TypeMirror parcelListener = teUtils.getTypeMirror(Const.PARCEL_LISTENER);
 
         if(teUtils.isSubtype(baseType, parcelListener)) {
-            writeBlock.invoke("writeToParcel").arg(destVar);
-            readBlock.invoke("readFromParcel").arg(inVar);
+            writeBlock.invoke("onWriteParcel").arg(destVar).arg(flags);
+            readBlock.invoke("onReadParcel").arg(inVar);
         }
     }
 
@@ -147,7 +148,7 @@ public class GeneratedParcelable extends TGeneratedClass {
         JMethod wtp = generated.method(JMod.PUBLIC, Void, "writeToParcel");
         wtp.annotate(factory.ref(TConsts.OVERRIDE));
         destVar = wtp.param(Parcel, "dest");
-        wtp.param(Integer, "flags");
+        flags = wtp.param(Integer, "flags");
 
         writeBlock = wtp.body();
     }
